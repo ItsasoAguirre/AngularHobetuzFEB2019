@@ -7,7 +7,7 @@ import { Todo } from '../todo/todo';
 })
 export class ImportantePipe implements PipeTransform {
 
-  transform(todos: Array<Todo>): Array<Todo> {
+  transform(todos: Array<Todo>, importante?: boolean): Array<Todo> {
     return todos.sort((a, b) => (b.importante && !a.importante) ? 1 : -1); }
   }
 

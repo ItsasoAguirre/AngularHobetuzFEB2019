@@ -7,7 +7,7 @@
   <button  [disabled]="completo()" (click)="addToArray()">Añadir equipo</button>
 
 </div>
-
+<div>Buscar Equipo: <input type="text" [(ngModel)]="searchText" placeholder="buscar"></div>
 <div *ngIf="equipos?.length > 0">
   <table class="table">
     <tr>
@@ -17,7 +17,7 @@
       <th>Año de Fundación</th>
     </tr>
     <tbody *ngIf="equipos.length > 0">
-      <tr *ngFor="let equipo of equipos | priorizar" [ngClass]="setStyles(equipo)">
+      <tr *ngFor="let equipo of equipos | priorizar | filtroBuscar : searchText" [ngClass]="setStyles(equipo)">
         <td>{{equipo.nombre | uppercase}}</td>
         <td>{{equipo.ciudad}}</td>
         <td>{{equipo.socios}}</td>

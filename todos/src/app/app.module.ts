@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { TerminadaPipe } from './pipes/terminada.pipe';
 import { ImportantePipe } from './pipes/importante.pipe';
-import { SinTerminarPipe } from './pipes/sin-terminar.pipe';
+
 
 // Decorador
 @NgModule({
@@ -15,8 +15,8 @@ import { SinTerminarPipe } from './pipes/sin-terminar.pipe';
     AppComponent,
     TodoComponent,
     TerminadaPipe,
-    ImportantePipe,
-    SinTerminarPipe
+    ImportantePipe
+
   ],
   // Las importaciones necesarias para todos los componentes de la aplicacion
   imports: [

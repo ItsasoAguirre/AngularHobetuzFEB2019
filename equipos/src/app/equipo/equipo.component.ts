@@ -9,11 +9,13 @@ import { Equipo } from './equipo';
 export class EquipoComponent implements OnInit {
   equipos: Array<Equipo>;
   nuevoEquipo: Equipo;
+  searchText: string;
   constructor() { }
 
   ngOnInit() {
     this.equipos = [];
     this.nuevoEquipo = new Equipo('', '', 0, 0);
+    this.searchText = '';
   }
 
   addToArray() {

@@ -7,8 +7,8 @@ import { Todo } from '../todo/todo';
 })
 export class TerminadaPipe implements PipeTransform {
 
-  transform(todos: Array<Todo>): Array<Todo> {
-    return todos.filter(t => t.terminado) ;
+  transform(todos: Array<Todo>, terminada: boolean): Array<Todo> {
+    return todos.filter(t => t.terminado === terminada) ;
   }
 
 }

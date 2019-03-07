@@ -2,14 +2,14 @@
 <div *ngIf="tareas?.length > 0">
   <h1>Tareas sin terminar</h1>
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let tarea of tareas | sinTerminar | importante" 
+    <li class="list-group-item" *ngFor="let tarea of tareas | terminada :false | importante" 
         (click)= terminada(tarea)
         [ngClass]="setStyles(tarea)">{{tarea.nombre}}</li>
   </ul>
   <br>
   <h1>Tareas terminadas</h1>
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let tarea of tareas | terminada | importante" 
+    <li class="list-group-item" *ngFor="let tarea of tareas | terminada :true | importante" 
         (click)= terminada(tarea)
         [ngClass]="setStyles(tarea)">{{tarea.nombre}}</li>
   </ul>

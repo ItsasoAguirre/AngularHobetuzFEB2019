@@ -9,6 +9,7 @@ export class TodoComponent implements OnInit {
 
   tareas: Array<Todo>;
   nuevoTodo: Todo;
+  public searching: boolean = false;
 
   constructor() { }
 
@@ -28,6 +29,20 @@ export class TodoComponent implements OnInit {
   terminada(tarea: Todo): void {
     tarea.terminado = !tarea.terminado;
   }
+
+  /**
+  * Show the search results based in the faqs
+  * @function showSearchResults
+  * @param {any} event
+  * @return {void}
+  */
+ public showSearchResults(event: any): void {
+  if (event.target.value.length >= 3) {
+    this.searching = true;
+  } else {
+    this.searching = false;
+  }
+}
 
   setStyles(tarea: Todo): any {
       /*if (tarea.terminado){
