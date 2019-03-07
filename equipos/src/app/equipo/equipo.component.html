@@ -1,0 +1,34 @@
+<div>
+  <div><input placeholder="Nombre" type="text" [(ngModel)]="nuevoEquipo.nombre" required> </div>
+  <div><input placeholder="Ciudad" type="text" [(ngModel)]="nuevoEquipo.ciudad" required> </div>
+  <div><input placeholder="Nº Socios" type="number" [(ngModel)]="nuevoEquipo.socios" required> </div>
+  <div><input placeholder="Año fundación" type="number" [(ngModel)]="nuevoEquipo.anyoFundacion" required></div> 
+
+  <button  [disabled]="completo()" (click)="addToArray()">Añadir equipo</button>
+
+</div>
+
+<div *ngIf="equipos?.length > 0">
+  <table class="table">
+    <tr>
+      <th>Nombre</th>
+      <th>Ciudad</th>
+      <th>Socios</th>
+      <th>Año de Fundación</th>
+    </tr>
+    <tbody *ngIf="equipos.length > 0">
+      <tr *ngFor="let equipo of equipos | priorizar" [ngClass]="setStyles(equipo)">
+        <td>{{equipo.nombre | uppercase}}</td>
+        <td>{{equipo.ciudad}}</td>
+        <td>{{equipo.socios}}</td>
+        <td>{{equipo.anyoFundacion}}</td>
+      </tr>
+   </tbody>
+   <tbody *ngIf="equipos.length == 0">
+      <tr>
+        <td colspan="4">No hay Equipos que mostrar</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="equipos?.length == 0"><span>NO hay equipos en la competicion</span> </div>

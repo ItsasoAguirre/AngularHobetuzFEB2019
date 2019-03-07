@@ -1,0 +1,9 @@
+<input type="text" [(ngModel)]="nuevoTodo.nombre"><input type="checkbox" [(ngModel)]="nuevoTodo.importante">Importante <button (click)="addToArray()">Añadir tarea</button>
+<div *ngIf="tareas?.length > 0">
+  <ul>
+    <li *ngFor="let tarea of tareas | terminada | importante" 
+        (click)= terminada(tarea)
+        [ngClass]="setStyles(tarea)">{{tarea.nombre}}</li>
+  </ul>
+</div>
+<div *ngIf="tareas?.length == 0"><span>NO hay tareas</span> </div>
