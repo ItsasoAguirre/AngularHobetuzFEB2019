@@ -1,7 +1,15 @@
 <input type="text" [(ngModel)]="nuevoTodo.nombre"><input type="checkbox" [(ngModel)]="nuevoTodo.importante">Importante <button (click)="addToArray()">Añadir tarea</button>
 <div *ngIf="tareas?.length > 0">
-  <ul>
-    <li *ngFor="let tarea of tareas | terminada | importante" 
+  <h1>Tareas sin terminar</h1>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let tarea of tareas | sinTerminar | importante" 
+        (click)= terminada(tarea)
+        [ngClass]="setStyles(tarea)">{{tarea.nombre}}</li>
+  </ul>
+  <br>
+  <h1>Tareas terminadas</h1>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let tarea of tareas | terminada | importante" 
         (click)= terminada(tarea)
         [ngClass]="setStyles(tarea)">{{tarea.nombre}}</li>
   </ul>
