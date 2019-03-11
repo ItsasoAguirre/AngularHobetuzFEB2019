@@ -1,27 +1,35 @@
-<div>
+<div class="row">
+<div class="cols-12">
   <div><input placeholder="Nombre" type="text" [(ngModel)]="nuevoEquipo.nombre" required> </div>
-  <div><input placeholder="Ciudad" type="text" [(ngModel)]="nuevoEquipo.ciudad" required> </div>
+  <div><input placeholder="Ciudad"type="text" [(ngModel)]="nuevoEquipo.ciudad" required> </div>
   <div><input placeholder="Nº Socios" type="number" [(ngModel)]="nuevoEquipo.socios" required> </div>
-  <div><input placeholder="Año fundación" type="number" [(ngModel)]="nuevoEquipo.anyoFundacion" required></div> 
+  <div><input placeholder="Año fundación" type="number" [(ngModel)]="nuevoEquipo.anyoFundacion" required>
+  <div><input type='text' (change)="readURL($event);" [(ngModel)]="nuevoEquipo.escudo" required/></div>
+  <img id="blah" class="img-responsive" [src]="imageSrc" alt="your image" />
+
+</div> 
 
   <button  [disabled]="completo()" (click)="addToArray()">Añadir equipo</button>
-
 </div>
+<div class="cols-6"></div>
+<div class="mb-3 mt-3"></div>
 <div>Buscar Equipo: <input type="text" [(ngModel)]="searchText" placeholder="buscar"></div>
 <div *ngIf="equipos?.length > 0">
-  <table class="table">
-    <tr>
+  <table class=".table-striped">
+    <tr class="text-center">
       <th>Nombre</th>
       <th>Ciudad</th>
       <th>Socios</th>
       <th>Año de Fundación</th>
+
     </tr>
     <tbody *ngIf="equipos.length > 0">
-      <tr *ngFor="let equipo of equipos | priorizar | filtroBuscar : searchText" [ngClass]="setStyles(equipo)">
-        <td>{{equipo.nombre | uppercase}}</td>
-        <td>{{equipo.ciudad}}</td>
-        <td>{{equipo.socios}}</td>
-        <td>{{equipo.anyoFundacion}}</td>
+      <tr *ngFor="let equipo of equipos | priorizar | filtroBuscar : searchText" [ngClass]="setStyles(equipo)" (mouseover)="mostrarEscudo(equipo)">
+        <td class="text-center">{{equipo.nombre | uppercase}}</td>
+        <td class="text-center">{{equipo.ciudad}}</td>
+        <td class="text-center">{{equipo.socios | number:'1.0-0':'es'}}</td>
+        <td class="text-center">{{equipo.anyoFundacion | number:'1.0-0':'es'}}</td>
+        <td id="escudo" class="logo" [(ngModel)]="nuevoEquipo.escudo"> <img  class="img-responsive only-show-on-hover" [src]="nuevoEquipo.escudo" alt="your image" /></td>
       </tr>
    </tbody>
    <tbody *ngIf="equipos.length == 0">
@@ -32,3 +40,4 @@
   </table>
 </div>
 <div *ngIf="equipos?.length == 0"><span>NO hay equipos en la competicion</span> </div>
+</div>

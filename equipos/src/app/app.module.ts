@@ -17,7 +17,7 @@ import { FiltroBuscarPipe } from './pipes/filtro-buscar.pipe';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule // para poder poner ngmodel en los inputs
   ],
   providers: [],
   bootstrap: [AppComponent]

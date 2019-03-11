@@ -8,8 +8,13 @@ import { Equipo } from '../equipo/equipo';
 export class FiltroBuscarPipe implements PipeTransform {
 
   transform(equipos: Array<Equipo>, filtro: string): Array<Equipo> {
-    filtro = filtro.toLowerCase();
-    return equipos.filter( it => it.nombre.toLowerCase().includes(filtro));
+    if (filtro !== undefined && filtro.length > 0) {
+      filtro = filtro.toLowerCase();
+      return equipos.filter( it => it.nombre.toLowerCase().includes(filtro));
+    } else {
+      return equipos;
+    }
+
   }
 
 }
