@@ -12,6 +12,7 @@ export class EquipoComponent implements OnInit {
   equipos: Array<Equipo>;
   nuevoEquipo: Equipo;
   searchText: string;
+  equipoSeleccionado: Equipo;
   constructor() { }
 
   ngOnInit() {
@@ -27,7 +28,7 @@ export class EquipoComponent implements OnInit {
     console.log(this.equipos);
   }
   completo(): boolean {
-    if ( this.nuevoEquipo.socios !== 0 
+    if ( this.nuevoEquipo.socios !== 0
       && this.nuevoEquipo.anyoFundacion !== 0 && this.nuevoEquipo.nombre !== '' && this.nuevoEquipo.ciudad !== '') {
         return false;
 
@@ -38,27 +39,9 @@ export class EquipoComponent implements OnInit {
   setStyles(equipo: Equipo): any {
     if (equipo.socios > 1000) {
       return 'muchosSocios';
-}}
+  }}
 
-readURL(event: Event): void {
-  if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-
-      const reader = new FileReader();
-      reader.onload = e => this.imageSrc = reader.result;
-
-      reader.readAsDataURL(file);
+  mostrarEscudo(equipo: Equipo): void {
+    this.equipoSeleccionado = equipo;
   }
-}
-
-
-mostrarEscudo(equipo: Equipo) {
-  const reader = new FileReader();
-  reader.onload = e => equipo.escudo = reader.result;
-
-  reader.readAsDataURL(file);
-  console.log(equipo.escudo);
-
-}
-
 }

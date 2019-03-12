@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { EquipoComponent } from './equipo/equipo.component';
@@ -17,7 +17,8 @@ import { FiltroBuscarPipe } from './pipes/filtro-buscar.pipe';
   ],
   imports: [
     BrowserModule,
-    FormsModule // para poder poner ngmodel en los inputs
+    FormsModule, // para poder poner ngmodel en los inputs
+    ReactiveFormsModule // para los formularios reactivos a partir de angular 7
   ],
   providers: [],
   bootstrap: [AppComponent]
