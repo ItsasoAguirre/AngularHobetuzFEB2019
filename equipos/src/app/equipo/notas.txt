@@ -4,3 +4,33 @@ victor robles -> https://victorroblesweb.es/
 
 
 iconos -> https://icon-icons.com/
+
+
+
+ROUTING (Para tener mas de una pagina en la aplicacion)
+------------------
+se crea   app-routing.mdule.ts
+ejemplo de crear rutas
+const routes: Routes = [
+    {path: 'comp1', component: Component1} localhost:4200/comp1
+    {path: 'comp2', component: Component2}  localhost:4200/comp2
+    {path: '**',component,ErrorComponent} //rutas no definidas localhost:4200/ef
+    {path: '',redirectTo: '/comp1', pathMatch: 'full'} :Ruta por defecto localhost:4200
+];
+
+
+
+importante tener en el index.html 
+es obligatorio para el routing <base href="/">
+
+
+en el app.component.html
+tiene que tener la etiqueta <router-outlet></router-outlet>
+
+ejeplo de app.compnent.html <nav>
+  <ul>
+    <li><a [routerLink]="['/opcion1']" routerLinkActive="active"(clase css pra los links q esten activos) >Opcion1</a></li>
+    <li><a [routerLink]="['/opcion2']" routerLinkActive="active">Opcion2</a></li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>

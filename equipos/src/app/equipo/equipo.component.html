@@ -7,14 +7,11 @@
   <div><input placeholder="URL Escudo"type='text' [(ngModel)]="nuevoEquipo.escudo" required/></div>
   <img [title]="nuevoEquipo.nombre" [src]="nuevoEquipo.escudo" [alt]="nuevoEquipo.nombre" />
   <button  [disabled]="completo()" (click)="addToArray()">Añadir equipo</button>-->
+  
   <form [formGroup]="formGroup">
     <label for="nombre">Nombre</label>
     <input name="nombre"
           formControlName="nombre"
-          type="text" />
-    <label for="ciudad">Ciudad</label>
-    <input name="ciudad"
-          formControlName="ciudad"
           type="text" />
     <label for="ciudad">Ciudad</label>
     <input name="ciudad"
@@ -28,10 +25,67 @@
     <input name="fundacion"
           formControlName="fundacion"
           type="number" />
+    <label for="escudo">Escudo</label>
+    <input name="escudo"
+          formControlName="escudo"
+          type="text" />
+    <div>
+      <img src={{formGroup.escudo}} title="formGroup.nombre" alt="formGroup.nombre">
+    </div>
   </form>
 </div>
+<div><button (click)="register(formGroup)"
+  [disabled]="formGroup.invalid">Insertar equipo</button></div>
 
-<div class="cols-6">
+
+<div class="col-6">
+  <div class="mb-3 mt-3">Buscar Equipo: <input type="text" [(ngModel)]="searchText" /></div>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr class="text-center">
+        <th>Nombre</th>
+        <th>Ciudad</th>
+        <th>Socios</th>
+        <th>Año de Fundación</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="equipos.length > 0">
+      <tr *ngFor="let equipo of equipos |priorizar| filtroBuscar : searchText" 
+        [ngClass]="{importante: equipo.socios > 40000}" 
+        (click)="mostrarEquipo(equipo)">
+        <td class="text-center">{{equipo.nombre}}</td>
+        <td class="text-center">{{equipo.ciudad}}</td>
+        <td class="text-right">{{equipo.socios | number:'1.0-0':'es'}}</td>
+        <td class="text-right">{{equipo.anyoFundacion | number:'1.0-0':'es'}}</td>
+      </tr>
+  </tbody>
+  <tbody *ngIf="equipos.length == 0">
+      <tr>
+        <td colspan="4" style="text-align: center">No hay Equipos que mostrar</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+    <div class="jumbotron col-6" *ngIf="equipoSeleccionado">
+  <p>
+    <img [src]="equipoSeleccionado.escudo" [title]="equipoSeleccionado.nombre" [alt]="equipoSeleccionado.nombre">
+  </p>
+  <p>
+    {{equiposeleccionado.nombre}}
+  </p>
+  <p>
+    {{equiposeleccionado.ciudad}}
+  </p>
+  <p>
+    {{equiposeleccionado.anyoFundacion}}
+  </p>
+  <p>
+    {{equiposeleccionado.socios}}
+  </p>
+</div>
+</div>
+
+<!--<div class="cols-6">
   <div class="mb-3 mt-3">
     Buscar Equipo: <input type="text" [(ngModel)]="searchText" placeholder="buscar">
   </div>
@@ -42,7 +96,6 @@
         <th>Ciudad</th>
         <th>Socios</th>
         <th>Año de Fundación</th>
-
       </tr>
       <tbody *ngIf="equipos.length > 0">
         <tr *ngFor="let equipo of equipos | priorizar | filtroBuscar : searchText" 
@@ -69,4 +122,4 @@
   </p>
 </div>
 <div *ngIf="equipos?.length == 0"><span>NO hay equipos en la competicion</span> </div>
-</div>
+</div>-->

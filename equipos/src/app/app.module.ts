@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { EquipoComponent } from './equipo/equipo.component';
 import { PriorizarPipe } from './pipes/priorizar.pipe';
 import { FiltroBuscarPipe } from './pipes/filtro-buscar.pipe';
+import { JugadoresComponent } from './jugadores/jugadores.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EquipoComponent,
     PriorizarPipe,
-    FiltroBuscarPipe
+    FiltroBuscarPipe,
+    JugadoresComponent
   ],
   imports: [
     BrowserModule,
