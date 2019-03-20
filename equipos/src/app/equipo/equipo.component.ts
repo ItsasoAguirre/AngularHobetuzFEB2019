@@ -52,8 +52,8 @@ export class EquipoComponent implements OnInit {
       return 'muchosSocios';
   }}
 
-  mostrarEquipo(equipo: Equipo): void {
-    this.equipoSeleccionado = equipo;
+  mostrarEquipo(equipo: Equipo): Equipo {
+    return this.equipoSeleccionado = equipo;
   }
 
   register(formGroup: FormGroup): void {

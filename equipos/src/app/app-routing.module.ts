@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { JugadoresComponent } from './jugadores/jugadores.component';
 import { EquipoComponent } from './equipo/equipo.component';
+import { Error404Component } from './error404/error404.component';
 
 
 const routes: Routes = [
@@ -16,4 +17,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

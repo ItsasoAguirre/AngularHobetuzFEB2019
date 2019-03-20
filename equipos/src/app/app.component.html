@@ -1,3 +1,8 @@
 
-<app-equipo></app-equipo>
-<router-outlet></router-outlet>
+<nav>
+    <ul>
+      <li><a [routerLink]="['/jugadores']" routerLinkActive="active" >Jugadores</a></li>
+      <li><a [routerLink]="['/equipos']" routerLinkActive="active">Equipos</a></li>
+    </ul>
+  </nav>
+  <router-outlet></router-outlet>

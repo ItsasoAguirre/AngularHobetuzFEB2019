@@ -1,12 +1,5 @@
 <div class="row">
 <div class="cols-12">
-  <!--<div><input placeholder="Nombre" type="text" [(ngModel)]="nuevoEquipo.nombre" required> </div>
-  <div><input placeholder="Ciudad"type="text" [(ngModel)]="nuevoEquipo.ciudad" required> </div>
-  <div><input placeholder="Nº Socios" type="number" [(ngModel)]="nuevoEquipo.socios" required> </div>
-  <div><input placeholder="Año fundación" type="number" [(ngModel)]="nuevoEquipo.anyoFundacion" required></div> 
-  <div><input placeholder="URL Escudo"type='text' [(ngModel)]="nuevoEquipo.escudo" required/></div>
-  <img [title]="nuevoEquipo.nombre" [src]="nuevoEquipo.escudo" [alt]="nuevoEquipo.nombre" />
-  <button  [disabled]="completo()" (click)="addToArray()">Añadir equipo</button>-->
   
   <form [formGroup]="formGroup">
     <label for="nombre">Nombre</label>
@@ -84,42 +77,3 @@
   </p>
 </div>
 </div>
-
-<!--<div class="cols-6">
-  <div class="mb-3 mt-3">
-    Buscar Equipo: <input type="text" [(ngModel)]="searchText" placeholder="buscar">
-  </div>
-  <div *ngIf="equipos?.length > 0">
-    <table class=".table-striped">
-      <tr class="text-center">
-        <th>Nombre</th>
-        <th>Ciudad</th>
-        <th>Socios</th>
-        <th>Año de Fundación</th>
-      </tr>
-      <tbody *ngIf="equipos.length > 0">
-        <tr *ngFor="let equipo of equipos | priorizar | filtroBuscar : searchText" 
-        [ngClass]="setStyles(equipo)" (mouseover)="mostrarEscudo(equipo)">
-          <td class="text-center">{{equipo.nombre | uppercase}}</td>
-          <td class="text-center">{{equipo.ciudad}}</td>
-          <td class="text-center">{{equipo.socios | number:'1.0-0':'es'}}</td>
-          <td class="text-center">{{equipo.anyoFundacion | number:'1.0-0':'es'}}</td>
-          <td id="escudo" class="logo" [(ngModel)]="nuevoEquipo.escudo"> <img  class="img-responsive only-show-on-hover" [src]="nuevoEquipo.escudo" alt="your image" /></td>
-        </tr>
-    </tbody>
-    <tbody *ngIf="equipos.length == 0">
-        <tr>
-          <td colspan="4">No hay Equipos que mostrar</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-<div class="jumbotron cols-6">
-  <p>
-    <img [src]="equiposeleccionado.escudo" [title]="equiposeleccionado.nombre"
-    [alt]="equiposeleccionado.nombre">
-  </p>
-</div>
-<div *ngIf="equipos?.length == 0"><span>NO hay equipos en la competicion</span> </div>
-</div>-->
