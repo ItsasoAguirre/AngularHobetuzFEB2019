@@ -34,3 +34,13 @@ ejeplo de app.compnent.html <nav>
   </ul>
 </nav>
 <router-outlet></router-outlet>
+
+
+
+
+
+
+translate
+https://codemain.es/aplicacion-web-multi-idioma-con-angular-y-ngx-translate/
+https://stackoverflow.com/questions/44287827/dynamically-change-locale-for-datepipe-in-angular-2
+
