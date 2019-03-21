@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Equipo } from './equipo';
 import es from '@angular/common/locales/es';
 import {registerLocaleData} from '@angular/common';
@@ -11,24 +11,24 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 })
 export class EquipoComponent implements OnInit {
-  equipos: Array<Equipo>;
+  @Input() equipos: Array<Equipo>;
   nuevoEquipo: Equipo;
-  searchText: string;
   equipoSeleccionado: Equipo;
   formGroup: FormGroup;
   constructor( private formBuilder: FormBuilder ) { }
 
+
   ngOnInit() {
     registerLocaleData(es);
     this.buildForm();
+    this.nuevoEquipo = new Equipo('', '', 0, 0, '');
     this.equipos = [
       new Equipo('Athletic Club', 'Bilbao', 44171, 1898, 'https://cdn.icon-icons.com/icons2/1637/PNG/256/athletic-bilbao_109476.png'),
       new Equipo('Futbol Club Barcelona', 'Barcelona', 143459, 1899, 'https://cdn.icon-icons.com/icons2/1637/PNG/256/barcelona_109494.png'),
       new Equipo('Deportivo Alaves', 'Vitoria', 17512 , 1921, 'https://cdn.icon-icons.com/icons2/1637/PNG/256/alaves_109484.png'),
       new Equipo('Real Club Celta de Vigo', 'Vigo', 22104, 1923, 'https://cdn.icon-icons.com/icons2/1637/PNG/256/celta-de-vigo_109482.png')
     ];
-    this.nuevoEquipo = new Equipo('', '', 0, 0, '');
-    this.searchText = '';
+
   }
 
   private buildForm() {
@@ -46,16 +46,6 @@ export class EquipoComponent implements OnInit {
     this.buildForm();
     console.log(this.equipos);
   }
-
-  setStyles(equipo: Equipo): any {
-    if (equipo.socios > 1000) {
-      return 'muchosSocios';
-  }}
-
-  mostrarEquipo(equipo: Equipo): Equipo {
-    return this.equipoSeleccionado = equipo;
-  }
-
   register(formGroup: FormGroup): void {
     console.log(formGroup);
     if (formGroup) {
@@ -69,4 +59,14 @@ export class EquipoComponent implements OnInit {
       }
     }
   }
+
+  mostrarEquipo(equipo: Equipo): Equipo {
+    return this.equipoSeleccionado = equipo;
+  }
+
+  capturarObjeto(obj: Equipo): void {
+    console.log(obj);
+    this.equipoSeleccionado = obj;
+  }
+
 }

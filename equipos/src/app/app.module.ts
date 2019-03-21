@@ -13,6 +13,7 @@ import { Error404Component } from './error404/error404.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ListaequiposComponent } from './listaequipos/listaequipos.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     PriorizarPipe,
     FiltroBuscarPipe,
     JugadoresComponent,
-    Error404Component
+    Error404Component,
+    ListaequiposComponent
   ],
   imports: [
     BrowserModule,

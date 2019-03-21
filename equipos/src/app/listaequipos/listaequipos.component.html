@@ -1,0 +1,29 @@
+<div class="col-6">
+  <div class="mb-3 mt-3">Buscar Equipo: <input type="text" [(ngModel)]="searchText" /></div>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr class="text-center">
+        <th>Nombre</th>
+        <th>Ciudad</th>
+        <th>Socios</th>
+        <th>Año de Fundación</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="listaEquipos.length > 0">
+      <tr *ngFor="let equipo of listaEquipos |priorizar| filtroBuscar : searchText" 
+        [ngClass]="{importante: equipo.socios > 40000}" 
+        (click)="enviarObjeto(equipo)">
+        <td class="text-center">{{equipo.nombre}}</td>
+        <td class="text-center">{{equipo.ciudad}}</td>
+        <td class="text-right">{{equipo.socios | number:'1.0-0':'es'}}</td>
+        <td class="text-right">{{equipo.anyoFundacion | number:'1.0-0':'es'}}</td>
+      </tr>
+  </tbody>
+  <tbody *ngIf="listaEquipos.length == 0">
+      <tr>
+        <td colspan="4" style="text-align: center">No hay Equipos que mostrar</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
