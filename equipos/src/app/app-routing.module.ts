@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/equipos', pathMatch: 'full'},
   {path: 'jugadores', component: JugadoresComponent},
   {path: 'equipos', component: EquipoComponent},
-  {path: '**', component: Error404Component}
+  {path: '**', component: Error404Component} // ruta no establecida
 ];
 
 @NgModule({

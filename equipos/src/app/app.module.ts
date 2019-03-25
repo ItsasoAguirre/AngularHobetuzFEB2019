@@ -14,6 +14,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ListaequiposComponent } from './listaequipos/listaequipos.component';
+import { SeleccionarJugadoresPipe } from './pipes/seleccionar-jugadores.pipe';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ListaequiposComponent } from './listaequipos/listaequipos.component';
     FiltroBuscarPipe,
     JugadoresComponent,
     Error404Component,
-    ListaequiposComponent
+    ListaequiposComponent,
+    SeleccionarJugadoresPipe
   ],
   imports: [
     BrowserModule,

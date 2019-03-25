@@ -1,5 +1,5 @@
 <div class="row">
-<div class="cols-12">
+<div class="col-6">
   
   <form [formGroup]="formGroup">
     <label for="nombre">Nombre</label>
@@ -30,25 +30,23 @@
 <div><button (click)="register(formGroup)"
   [disabled]="formGroup.invalid">Insertar equipo</button></div>
 
-  <app-listaequipos [listaEquipos]="equipos"></app-listaequipos>
-
-  <app-listaequipos (emitter)="capturarObjeto($event)"></app-listaequipos>
+  <app-listaequipos class = "col-6" [listaEquipos]="equipos" (emitter)="mostrarEquipo($event)"></app-listaequipos>
 
   <div class="jumbotron col-6" *ngIf="equipoSeleccionado">
     <p>
       <img [src]="equipoSeleccionado.escudo" [title]="equipoSeleccionado.nombre" [alt]="equipoSeleccionado.nombre">
     </p>
     <p>
-      {{equiposeleccionado.nombre}}
+      Nombre: {{equipoSeleccionado.nombre}}
     </p>
     <p>
-      {{equiposeleccionado.ciudad}}
+      {{equipoSeleccionado.ciudad}}
     </p>
     <p>
-      {{equiposeleccionado.anyoFundacion}}
+      {{equipoSeleccionado.anyoFundacion}}
     </p>
     <p>
-      {{equiposeleccionado.socios}}
+      {{equipoSeleccionado.socios}}
     </p>
   </div>
   </div>

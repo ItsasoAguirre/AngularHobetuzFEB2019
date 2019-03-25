@@ -11,7 +11,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 })
 export class EquipoComponent implements OnInit {
-  @Input() equipos: Array<Equipo>;
+
+  equipos: Array<Equipo>;
   nuevoEquipo: Equipo;
   equipoSeleccionado: Equipo;
   formGroup: FormGroup;
@@ -60,13 +61,10 @@ export class EquipoComponent implements OnInit {
     }
   }
 
-  mostrarEquipo(equipo: Equipo): Equipo {
-    return this.equipoSeleccionado = equipo;
-  }
+  mostrarEquipo(equipo: Equipo): void {
+    console.log("-Equipo recogido" + equipo);
+    this.equipoSeleccionado = equipo;
+    console.log(" Equipo seleccinado" + this.equipoSeleccionado);
 
-  capturarObjeto(obj: Equipo): void {
-    console.log(obj);
-    this.equipoSeleccionado = obj;
   }
-
 }

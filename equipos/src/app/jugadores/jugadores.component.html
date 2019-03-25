@@ -1,1 +1,25 @@
-<app-listaequipos (emitter)="obtenerEquipos($event)"></app-listaequipos>
+<app-listaequipos [listaEquipos]="equipos" (emitter)="obtenerEquipos($event)"></app-listaequipos>
+
+<div class="col-6">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr class="text-center">
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Club</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="jugadores.length > 0">
+        <tr *ngFor="let jugador of jugadores | seleccionarJugadores: equipoSeleccionado ">
+          <td class="text-center">{{jugador.nombre}}</td>
+          <td class="text-center">{{jugador.apellido}}</td>
+          <td class="text-right">{{jugador.equipo}}</td>
+        </tr>
+    </tbody>
+    <tbody *ngIf="jugadores.length == 0">
+        <tr>
+          <td colspan="4" style="text-align: center">No hay jugadores que mostrar</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

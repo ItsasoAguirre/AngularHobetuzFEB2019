@@ -11,8 +11,7 @@ export class ListaequiposComponent implements OnInit {
   @Input() listaEquipos: Array<Equipo>;
   searchText: string;
 
-  @Output() public emitter: EventEmitter<Equipo> = new EventEmitter<Equipo>();
-  equipoSeleccionado: Equipo;
+  @Output() emitter: EventEmitter<Equipo> = new EventEmitter<Equipo>();
 
   constructor() { }
 
@@ -26,8 +25,7 @@ export class ListaequiposComponent implements OnInit {
   }}
 
   enviarObjeto(equipo: Equipo): void {
-    this.equipoSeleccionado = equipo;
-    this.emitter.emit(this.equipoSeleccionado);
+    this.emitter.emit(equipo);
   }
 
 
