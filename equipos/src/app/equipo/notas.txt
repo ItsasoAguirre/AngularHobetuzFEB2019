@@ -43,4 +43,5 @@ ejeplo de app.compnent.html <nav>
 translate
 https://codemain.es/aplicacion-web-multi-idioma-con-angular-y-ngx-translate/
 https://stackoverflow.com/questions/44287827/dynamically-change-locale-for-datepipe-in-angular-2
-
+https://medium.com/angular-chile/aplicaciones-multilenguaje-en-angular-7-con-ngx-translate-db8d1e7b380c
+https://www.twilio.com/blog/create-search-engine-friendly-internationalized-web-apps-angular-universal-ngx-translate

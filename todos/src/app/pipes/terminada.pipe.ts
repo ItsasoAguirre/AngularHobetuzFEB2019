@@ -2,8 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Todo } from '../todo/todo';
 
 @Pipe({
-  name: 'terminada',
-  pure: false
+  name: 'terminada'
 })
 export class TerminadaPipe implements PipeTransform {
 

@@ -1,0 +1,10 @@
+pure false en los pipe, es para cuando los arrays son mutables, pero es desaconsejable su uso porque es poco eficiente porque se recorre todas los elementos y dentro de ellos todas sus propiedades
+
+inmmutable se crea una nueva variable con otra direccion en memoria cambiando lo que se quiere 
+
+Ejemplo en Todos
+
+
+SERVICIOS
+
+ng g s services/todo comando para crear en la carpeta services

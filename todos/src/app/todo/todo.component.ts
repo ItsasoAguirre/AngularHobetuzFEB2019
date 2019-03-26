@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from './todo';
+import { TodoService } from '../services/todo.service';
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
@@ -9,50 +10,33 @@ export class TodoComponent implements OnInit {
 
   tareas: Array<Todo>;
   nuevoTodo: Todo;
-  public searching: boolean = false;
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
-    this.tareas = [
-      new Todo('Pasear a Goku', false, false),
-      new Todo('Sacar la basura', false, false),
-    ];
     this.nuevoTodo = new Todo('', false, false);
+    this.tareas = this.todoService.getTodos();
   }
 
   addToArray() {
-    this.tareas.push(this.nuevoTodo);
+    this.todoService.addTodo(this.nuevoTodo);
     this.nuevoTodo = new Todo('', false, false);
-    console.log(this.tareas);
   }
   terminada(tarea: Todo): void {
-    tarea.terminado = !tarea.terminado;
+    this.tareas = this.todoService.updateTodo(tarea);
+    console.log(this.tareas);
   }
 
-  /**
-  * Show the search results based in the faqs
-  * @function showSearchResults
-  * @param {any} event
-  * @return {void}
-  */
- public showSearchResults(event: any): void {
-  if (event.target.value.length >= 3) {
-    this.searching = true;
-  } else {
-    this.searching = false;
-  }
-}
+
 
   setStyles(tarea: Todo): any {
       /*if (tarea.terminado){
-        return 'terminada'
-*/
+        return 'terminada'*/
 
     return {
       'importante': tarea.importante,
       'terminada': tarea.terminado
-    }
+    };
   }
 
   }
