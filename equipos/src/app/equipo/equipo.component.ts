@@ -14,7 +14,6 @@ import { EquipoService } from '../services/equipo.service';
 export class EquipoComponent implements OnInit {
 
   equipos: Array<Equipo>;
-  nuevoEquipo: Equipo;
   equipoSeleccionado: Equipo;
   formGroup: FormGroup;
   constructor( private formBuilder: FormBuilder, private equipoService: EquipoService ) { }
@@ -24,7 +23,6 @@ export class EquipoComponent implements OnInit {
     registerLocaleData(es);
     this.buildForm();
     this.equipos = this.equipoService.getEquipos();
-    this.nuevoEquipo = new Equipo('', '', 0, 0, '');
   }
 
   private buildForm() {
@@ -37,23 +35,8 @@ export class EquipoComponent implements OnInit {
     });
   }
   addToArray() {
-    this.equipoService.addEquipo(this.nuevoEquipo);
-    this.nuevoEquipo = new Equipo('', '', 0, 0, '');
-    this.buildForm();
-    console.log(this.equipos);
-  }
-  register(formGroup: FormGroup): void {
-    console.log(formGroup);
-    if (formGroup) {
-      if (formGroup.value) {
-        this.nuevoEquipo.nombre = formGroup.value.nombre;
-        this.nuevoEquipo.ciudad = formGroup.value.ciudad;
-        this.nuevoEquipo.socios = formGroup.value.socios;
-        this.nuevoEquipo.anyoFundacion = formGroup.value.fundacion;
-        this.nuevoEquipo.escudo = formGroup.value.escudo;
-        this.addToArray();
-      }
-    }
+    this.equipos = this.equipoService.addEquipo(this.formGroup.value);
+    this.formGroup.reset();
   }
 
   mostrarEquipo(equipo: Equipo): void {

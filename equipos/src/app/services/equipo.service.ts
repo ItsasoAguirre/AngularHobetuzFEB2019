@@ -16,8 +16,7 @@ export class EquipoService {
     ];
   }
 
-
-  addEquipo(equipo: Equipo) {
+  addEquipo(equipo: Equipo): Array<Equipo> {
     this.equipos = [...this.equipos, equipo];
     return this.equipos;
   }
