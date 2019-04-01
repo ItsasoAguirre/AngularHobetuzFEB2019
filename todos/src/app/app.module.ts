@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
@@ -21,6 +23,7 @@ import { ImportantePipe } from './pipes/importante.pipe';
   // Las importaciones necesarias para todos los componentes de la aplicacion
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule
   ],
   // Todos los servicios que utilicen nuestros componentes

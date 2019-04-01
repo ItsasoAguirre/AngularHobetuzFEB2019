@@ -14,3 +14,5 @@ ng g s services/todo comando para crear en la carpeta services
 DEBUGUEAR
 instalar debugger for chrome
 pestaña de debug -> ruleta, crea un fichero
+
+https://countryflags.io/
