@@ -1,0 +1,29 @@
+<!--<div *ngIf="alumnosList.length > 0">
+  <ul class="list-group">
+    <li *ngFor="let alumno of alumnosList" 
+      class="list-group-item">
+        {{alumno.nombre | uppercase}}
+    </li>
+  </ul>
+</div>
+<div *ngIf="alumnosList.length == 0">
+  <h3>No hay Alumnos registrados</h3>
+</div>
+-->
+<nav class="navbar navbar-light mb-4" style="background-color: #e3f2fd;">
+    <h3 class="card-title ">Alumnos</h3>
+</nav>
+
+<div class="row d-flex justify-content-center">
+<div class="card col-sm-2 m-3 card bg-secondary text-white" *ngFor="let alumno of alumnosList">
+
+<div class="card-body">
+    <h3 class="card-title text-capitalize">
+      {{alumno.nombre}} {{alumno.apellidos}}</h3>
+    <p>Telefono: {{alumno.telefono}}</p>
+    <p>Email: {{alumno.email}}</p>
+    <a href="#" class="btn btn-primary">Detalle</a>
+</div>
+</div>
+</div>
+
