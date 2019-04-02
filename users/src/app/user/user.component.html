@@ -1,10 +1,16 @@
 
-<h3>Usuarios</h3>
+<nav class="navbar navbar-light mb-4" style="background-color: #e3f2fd;">
+        <h3 class="card-title ">Usuarios</h3>
+</nav>
 
-<div>
-    <div class="card" *ngFor="let user of result.results">
-        <div class="card-header">{{user.name.first}}</div>
-        <div class="card-body">Content</div> 
-        <div class="card-footer">Footer</div>
+<div class="row d-flex justify-content-center">
+<div class="card col-sm-2 m-3" *ngFor="let user of result.results">
+
+    <img class="card-img-top" src="{{user.picture.large}}" alt="{{user.picture.large}}">
+    <div class="card-body">
+        <h5 class="card-title text-capitalize">{{user.name.title | uppercase}} {{user.name.first}}</h5>
+        <img src= "https://www.countryflags.io/{{user.nat}}/flat/64.png" alt="{{user.nat}}" class="m-2">
+        <a href="#" class="btn btn-primary">Detalle</a>
     </div>
+</div>
 </div>
