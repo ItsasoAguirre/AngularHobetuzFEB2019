@@ -1,0 +1,26 @@
+IONIC ionicframework.com
+
+Competencia react native (son aplicaciones nativas), cordova
+
+npm install -g ionic
+
+ionic start myApp blank/tabs/sidemenu
+
+arrancar ionic serve
+
+Ionic native usa los plugins de cordova para poder usar la camara del movil, NFC, GPS, vibracion
+
+que mas ver 
+mean.io -> mean stack
+extension chrome para habilitar el CORS 
+allow cors origin
+moesif origin & CORS changer
+
+APis gratuitas
+marvel entity
+Pokemon poke.api
+reqres.in api para hacer todas las posibilidades posibles
+
+Testing:
+medium.com ->testing angular 7
+adictosaltrabajo.com

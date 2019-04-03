@@ -10,8 +10,11 @@
   <h3>No hay Alumnos registrados</h3>
 </div>
 -->
-<nav class="navbar navbar-light mb-4" style="background-color: #e3f2fd;">
-    <h3 class="card-title ">Alumnos</h3>
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <h3 class="card-title ">Alumnos</h3>
+  <form class="form-inline">
+    <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/anadirAlumno']" routerLinkActive="active">Añadir Alumno</button>
+  </form>
 </nav>
 
 <div class="row d-flex justify-content-center">

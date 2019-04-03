@@ -12,12 +12,14 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormularioAlumnoComponent } from './formulario-alumno/formulario-alumno.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlumnoComponent,
-    CursoComponent
+    CursoComponent,
+    FormularioAlumnoComponent
   ],
   imports: [
     BrowserModule,
